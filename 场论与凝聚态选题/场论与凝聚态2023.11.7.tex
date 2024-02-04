@@ -27,8 +27,77 @@ A usual choice for $W(\theta)$ is
   W = \exp \left( \frac{\cos \mathrm{d} \theta -1}{T} \right)
 \end{equation}
 
+\subsection{Low $T$ Expansion}
+
 Under low temperature, we can expand the weight as (to the spirit of renormalization group)
 \begin{equation}
   \exp \left( \frac{\cos  \mathrm{d} \theta_{l} - 1}{T} \right) \sim \exp \left( - \frac{\mathrm{d} \theta_{l}^{2}}{2T} \right) 
 \end{equation}
 which lost the $2\pi $ periodicity.
+
+We can get the asymptotic behaviour of $\left< \theta_{v_0}\theta_{v_1} \right>$ correlation from the property of gapless system,
+\begin{equation}
+  \left< \theta_{v_0} \theta_{v_1} \right> \xlongrightarrow{r \to \infty }
+  \begin{cases}
+    r^{-\left( d-2 \right)}, & d>2, \\
+    \frac{T}{2\pi } \ln r, & d=2.
+  \end{cases}
+\end{equation}
+
+Now we consider how to relate this to the correlation of order parameter $\left< \mathrm{e}^{\mathrm{i}\theta_{v_0}} \mathrm{e}^{-\mathrm{i} \theta_{v_1}} \right>$. By Gaussian integral, we have
+\begin{equation}
+  \int \mathcal{D} [x]\, \mathrm{e}^{- \frac{1}{2} x A x} \mathrm{e}^{\mathrm{i} x} = \mathrm{e}^{- \frac{1}{2} A^{-1}}
+\end{equation}
+Thus we have
+\begin{equation}
+  \left< \mathrm{e}^{\mathrm{i}\left( \theta_{v_0} - \theta_{v_1} \right)} \right> = \mathrm{e}^{- \frac{1}{2} \left< \left( \theta_{v_0} - \theta_{v_1} \right)^{2} \right>} = \mathrm{e}^{-\left< \theta_{v_0}^{2} \right>}.
+\end{equation}
+Substituting the $\theta\theta$ correlation, we obtain
+\begin{equation}
+  \left< \mathrm{e}^{\mathrm{i}\theta_{v_0}} \mathrm{e}^{-\mathrm{i}\theta_{v_1}} \right> = 
+  \begin{cases}
+    \mathrm{e}^{-\left< \theta_{v_0}^{2} \right>}, & d>2,
+    \\
+    \propto r^{- \frac{T}{2\pi }}, & d=2.
+  \end{cases}
+\end{equation}
+Directly we can identify there's no SSB in the quasi-long range $d=2$ case, and SSB appears in $d > 2$ case.
+In conclusion, we have
+\begin{itemize}
+  \item continuous, compact global symmetry systems have SSB only in $d>=3$,
+\end{itemize}
+
+\section{High $T$ Expansion}
+
+We make a Fourier transformation and obtain
+\begin{equation}
+  \exp \left( \frac{\cos \mathrm{d} \theta - 1}{T} \right) = \sum_{j \in \mathbb{Z}} \mathrm{e}^{-\frac{1}{T}} \cdot I_{j} \left( \frac{1}{T} \right)\mathrm{e}^{- \mathrm{i} j_{l} \left( \mathrm{d} \theta \right)_{l}},
+\end{equation}
+where $I_{j}$ stands for some Bessel function, whose relative magnitude relation takes the form of Fig. \ref{fig:plot-of-bessel-functions}.
+\begin{figure}[ht]
+    \centering
+    \incfig{plot-of-bessel-functions}
+    \caption{Plot of Bessel functions}
+    \label{fig:plot-of-bessel-functions}
+\end{figure}
+
+We apply the Fourier transformation in the partition function, and we will also see that this step will turn the system into current representation later
+\begin{equation}
+  \mathcal{Z} = \left( \prod_{v}  \int _{-\pi }^{\pi } \frac{\mathrm{d} \theta_{l}}{2\pi } \right) \left( \prod_{l} \sum_{j \in \mathbb{Z}}  \right) \left( \mathrm{e}^{- 1 / T} I_{j}\left( \frac{1}{T} \right) \right) \left( \prod_{v} \mathrm{e}^{-\mathrm{i} \theta_{v} \left( \nabla \cdot j \right)_{v}} \right).
+\end{equation}
+Note that $\theta_{v}$ isn't involved in any differential operator doesn't have propagation mode, and hence only serve as a constrain multiplier. By integrating it out, the partition function gets a term of $\delta \left( \nabla  \cdot j \right)$ , implying that only current-conserved configs contribute.
+
+Analogously, insertion of observables in the path integral works as creation and annihilation operators, i.e., correlators $\left< \mathrm{e}^{\mathrm{i}\theta_{v_0}} \mathrm{e}^{-\mathrm{i}\theta_{v_1}} \right>$ are composed by conserved current diagrams starting and ending at $v_0, v_1$. Now we skip a short discussion and put down the correlation function
+\begin{equation}
+  \left< \mathrm{e}^{\mathrm{i}\theta_{v_0}} \mathrm{e}^{-\mathrm{i}\theta_{v_1}} \right> \propto \left( I_1 \left( \frac{1}{T} \right) \right)^{r},
+\end{equation}
+which is short range as expected.
+\begin{figure}[ht]
+  \centering
+  \incfig{xy-model-high-t-correlator}
+  \caption{XY model high $T$ correlator}
+  \label{fig:xy-model-high-t-correlator}
+\end{figure}
+
+\paragraph{A comment here} A quite abnormal phenomenon that this system under low $T$ expansion behaves like a free field theory, comes from the approach of our expansion. The term $\exp \left( \frac{\mathrm{d} \theta_{l} ^{2}}{2T} \right)$ have no response to $T$, as shown by simply rescaling $\theta_{v} \to \theta_{v} / \sqrt{T}$, meaning that, at any dimension, this model has no phase transition no matter how low the temperature is. Till now, readers might have realized that \emph{$2\pi $ periodicity cannot be ignored even at low $T$} and that it accounts for a large part of the physics of this system.
+
