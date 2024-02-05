@@ -1,8 +1,129 @@
 % !TeX root = 场论与凝聚态.tex
 
 \section{Adding Topology Structures to XY Model}
-In classical statistic mechanics, XY model is widely proposed to describe the interactions between superconductors, whose weight reads
+
+From above we have met the demand of finding a way of expansion to preserve the $2\pi $ periodicity in low temperature, in order to avoid absorbing $T$ by rescaling the field. Meanwhile, it's naturally believed that a compact valued field theory ought to possess some kind of topological structures, due to the fact that \textbf{there exists nontrivial mappings from a closed loop to the (compact) space of field value}, which should be labeled by winding number.
+
+Now we consider a $1$-d lattice, both ends connected in a loop,
+
+\begin{figure}[ht]
+    \centering
+    \incfig{1d-looped-lattice}
+    \caption{1d looped lattice}
+    \label{fig:1d-looped-lattice}
+\end{figure}
+Intuitively we can derive from Fig \ref{fig:1d-looped-lattice} that the first configuration has winding number~$1$, while the second is trivial. This would be clearer as the number of vertices increases. 
+On each of the links, $\mathrm{d} \theta$ is about $\frac{2\pi }{L}$, where $L$ stands for number of links, thus the energy of a vortex can be estimated as
 \begin{equation}
-  \mathcal{Z} = \left( \prod_{\text{vertex}}^{} \int_{-\pi}^{\pi} \frac{\mathrm{d} \theta _{l}}{2\pi} \right) \prod_{\text{link}}^{} W \left( \mathrm{e}^{\mathrm{i} \mathrm{d} \theta_{l}} \right),
+  E \sim \left( \frac{2\pi }{L} \right)^{2} \cdot L \sim \frac{1}{L}.
 \end{equation}
-where $W$ is the Boltzmann weight of the system, restricted by the $U(1)$ symmetry of $\theta$.
+However, in our previous expansion, $\frac{\cos \mathrm{d} \theta_{l}-1}{T} \sim \frac{\mathrm{d} \theta_{l}^{2}}{2T}$, without $2\pi $ periodicity, the energy is mostly contributed by the single link on which $\theta$ transits from $-\pi $ to $\pi $,
+\begin{equation}
+  E \sim \left( 2\pi  \right)^{2}.
+\end{equation}
+
+On $2$-d lattice, the energy is
+\begin{figure}[ht]
+    \centering
+    \incfig{vortex-on-2d-lattice}
+    \caption{vortex on 2d lattice}
+    \label{fig:vortex-on-2d-lattice}
+\end{figure}
+\begin{equation}
+  \begin{aligned}
+    E  & \sim \sum \Delta r \left( \frac{2\pi }{r} \right)^{2} \cdot 2\pi  r ,\\
+       & \sim \text{core energy} + \ln r.
+  \end{aligned}
+\end{equation}
+However, if $\theta$ is $\mathbb{R}$ valued, the energy per length is almost constant (on red links in Fig \ref{fig:vortex-on-2d-lattice}), summing up to give an infinite total energy.
+
+On $3$-d lattice, vortices will form a loop.
+\begin{figure}[h!]
+    \centering
+    \incfig{vortex-loop-on-3d-lattice}
+    \caption{vortex loop on 3d lattice}
+    \label{fig:vortex-loop-on-3d-lattice}
+\end{figure}
+
+Similarly, a vortex in $4$-d lattice forms a 2d surface.
+
+Now we try to define a winding number. An expected form would be like
+\begin{equation}
+  \text{winding }\# = \sum_{\text{loop}} \mathrm{d} \theta,
+\end{equation}
+but the expression above will always read zero. Another choice is to replace $\mathrm{d} \theta$ by a variable in $(-\pi ,\pi )$. Define
+\begin{equation}
+  \gamma_{l} \equiv \mathrm{d} \theta_{l} + m_l 2\pi , \quad m \in \mathbb{Z}
+\end{equation}
+where $m$ is restricted to make $\gamma_{l}$ the smallest value. The winding number is
+\begin{equation}
+  \text{winding }\# \equiv \sum_{\text{loop}} \frac{\gamma_{l}}{2\pi } = \sum_{\text{area}} \frac{\mathrm{d} \gamma_{p}}{2\pi } = \sum_{\text{area}} \mathrm{d} m_{p}.
+\end{equation}
+Vortex density on plaquette is characterized by the curl of $\gamma_{l}$, and from Fig \ref{fig:vortex-on-2d-lattice}, we can find the rule to find $\mathrm{d} \gamma_{l}$, in Fig \ref{fig:rule-of-vortex}.
+\begin{figure}[ht]
+    \centering
+    \incfig{rule-of-vortex}
+    \caption{rule of vortex}
+    \label{fig:rule-of-vortex}
+\end{figure}
+The red links in the figure was previously defined as having a large $\mathrm{d} \theta_{l}$, but a new version can be carried out in our present language, that links are colored on which $m_l \neq 0$.
+
+There still remain two problems:
+\begin{itemize}
+  \item what if $\mathrm{d} \theta_{l} = \pi \mod 2\pi $, should we take $\gamma_{l} = \pi \text{ or } -\pi $? How to eliminate this uncertainty?
+  \item How to incorporate this into path integral?
+\end{itemize}
+We can solve the two problems together, as the first problem is nonsense in the context of path integral, where we sum up all possibilities, as long as $m_l$ is treated as a degree of freedom.
+
+\emph{Villain model} is introduced by replacing $\exp \left( \frac{\cos \mathrm{d} \theta_{l} - 1}{T} \right)$ with $\mathrm{e}^{- \frac{\gamma_{l}^{2}}{2T}}$ and regarding $m$ as a degree of freedom to be summed in path integral,
+\begin{figure}[ht]
+    \centering
+    \incfig{potential-in-villain-model}
+    \caption{potential in Villain model}
+    \label{fig:potential-in-villain-model}
+\end{figure}
+
+This model is not just a re-parameterization of XY model, but a big extension inspired by XY model. We can reintroduce it in the following way: assign each vertex with a $\mathbb{R}$ valued field, break $\mathbb{R}$ into $U(1) \otimes \mathbb{Z}$, sum up all configuration in path integral whose weight consists of interactions between $U(1)$ parts.
+
+But which model is better? --- Villain model, for Nobel prize \&
+\begin{itemize}
+  \item Ability of defining winding number from $2\pi $ periodicity.
+  \item Being able to use Gaussian integral.
+\end{itemize}
+
+Let's exploit the convenience of Gaussian integral and extra degree of freedom\footnote{
+  Why cannot use $\gamma_{l}$ as degree of freedom? In short, the Jacobian $\det \left( \mathrm{d}  \right)$ is non-local and strongly related to the topology of base manifold.
+} in Villain model. We can add a term to control the proliferation of vortices,
+\begin{equation}
+  \mathcal{Z} = \left( \prod_{v} \int _{-\pi }^{\pi } \frac{\mathrm{d} \theta_{l}}{2\pi } \right) \left( \prod_{l} \sum_{m_l \in \mathbb{Z}}  \right) \prod_{l} \mathrm{e}^{- \frac{\gamma_{l}^{2}}{2T}} \prod_{p} \mathrm{e}^{- \frac{u}{2T} \left( \frac{\mathrm{d} \gamma_{p}}{2\pi } \right)^{2}}.
+\end{equation}
+ And the property of Gaussian integral tells us,
+\begin{equation}
+  \mathrm{e}^{-\frac{\gamma_{l}^{2}}{2T}} \sim \int_{-\infty}^{+\infty} \, \mathrm{d}f_l \mathrm{e}^{- \frac{\gamma_{l}^{2}}{2T} - \frac{T}{2} \left( f_l - \mathrm{i} \frac{\gamma_{l}}{T} \right)^{2}} = \int_{-\infty}^{+\infty} \, \mathrm{d}f_l \,\mathrm{e}^{- \frac{T}{2} f_l^{2} + \mathrm{i} f_l \gamma_{l}}
+\end{equation}
+up to a unimportant global coefficient.
+This trick of changing degree of freedom is called \emph{Hubbard-Stratonovich transformation}
+
+Performing H-S transformation in partition function, the exponential part on the weight in $\mathcal{Z}$ changes to
+\begin{equation}
+  -\frac{T}{2} \sum_{l} f_l^{2} + \mathrm{i} \sum_{l} f_l \left( \mathrm{d} \theta + 2\pi  m \right)_{l} - \frac{u}{2T} \sum_{p} \left( \mathrm{d} m \right)_{p}^{2}.
+\end{equation}
+Note that the term of $\mathrm{e}^{\mathrm{i} f_l 2\pi m_l}$ being path integrated on all $m_l \in \mathbb{Z}$ deduces a constrain of $f_l \in \mathbb{Z}$. Then we mop up the integral \footnote{Here we can treat $\theta$ as if it is $\mathbb{R}$-valued, for the fact that the theory remain the same when $\theta$ is shifted $2\pi $.} on $\theta$,
+\begin{equation}
+  \int \mathrm{d} \theta \, \mathrm{e}^{ \mathrm{i}\sum f_l \mathrm{d} \theta_{l}} = \int \mathrm{d} \theta \, \mathrm{e}^{\mathrm{i} \sum \theta_{l} \mathrm{d} f_l} = \delta\left( \mathrm{d} f_l \right),
+\end{equation}
+Re-write this equation on \emph{dual lattice}, we get a conserved current,
+\begin{equation}
+  \mathrm{d} ^* f_{p*} = \left( \nabla \cdot f \right)_{\text{dual lattice}} = 0.
+\end{equation}
+
+Here we put our eye on a more specific case of a topological trivial base manifold to study BKT phase transition, i.e.,
+\begin{equation}
+  f_{l*} = \left( \mathrm{d} ^{*} h \right)_{l*}.
+\end{equation}
+Substitute into the partition function (the Jacobian is constant), the exponential term on weight is
+\begin{equation}
+  - \frac{T}{2} \sum_{l*} \left( \mathrm{d} ^{*} h\right)^{2} - 2\pi  \mathrm{i} \sum_{v*} h_{v*} \left( \mathrm{d} m_{v*} \right) - \frac{u}{2T} \sum_{p} \left( \mathrm{d} m \right)_{p}^{2}.
+\end{equation}
+This Lagrangian can be recognized as a Coulomb interacting system, in which $\left( \mathrm{d} ^{*} h \right)^{2}$ is the energy density of electronic field, $h_{v*} \mathrm{d} m_{v*}$ is a Coulomb coupling term, $\left( \mathrm{d} m \right)_{p}^{2}$ is the potential of vortices.
+If we integrate out $\tilde{h}_{v*}$ a Coulomb interaction between vortices will be generated.
