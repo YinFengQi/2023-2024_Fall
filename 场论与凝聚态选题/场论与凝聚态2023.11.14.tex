@@ -17,7 +17,7 @@ On each of the links, $\mathrm{d} \theta$ is about $\frac{2\pi }{L}$, where $L$ 
 \begin{equation}
   E \sim \left( \frac{2\pi }{L} \right)^{2} \cdot L \sim \frac{1}{L}.
 \end{equation}
-However, in our previous expansion, $\frac{\cos \mathrm{d} \theta_{l}-1}{T} \sim \frac{\mathrm{d} \theta_{l}^{2}}{2T}$, without $2\pi $ periodicity, the energy is mostly contributed by the single link on which $\theta$ transits from $-\pi $ to $\pi $,
+However, in our previous expansion, $\frac{\cos \mathrm{d} \theta_{l}-1}{T} \sim \frac{\mathrm{d} \theta_{l}^{2}}{2T}$, without $2\pi $ periodicity, the energy is mostly contributed by the single link on which $\theta$ transits from around $-\pi $ to $\pi $,
 \begin{equation}
   E \sim \left( 2\pi  \right)^{2}.
 \end{equation}
@@ -55,18 +55,18 @@ but the expression above will always read zero. Another choice is to replace $\m
 \begin{equation}
   \gamma_{l} \equiv \mathrm{d} \theta_{l} + m_l 2\pi , \quad m \in \mathbb{Z}
 \end{equation}
-where $m$ is restricted to make $\gamma_{l}$ the smallest value. The winding number is
+where $m$ is restricted to make $\gamma_{l}$ closest to zero. The winding number is
 \begin{equation}
   \text{winding }\# \equiv \sum_{\text{loop}} \frac{\gamma_{l}}{2\pi } = \sum_{\text{area}} \frac{\mathrm{d} \gamma_{p}}{2\pi } = \sum_{\text{area}} \mathrm{d} m_{p}.
 \end{equation}
-Vortex density on plaquette is characterized by the curl of $\gamma_{l}$, and from Fig \ref{fig:vortex-on-2d-lattice}, we can find the rule to find $\mathrm{d} \gamma_{l}$, in Fig \ref{fig:rule-of-vortex}.
+Vortex density on plaquette is characterized by the curl of $\gamma_{l}$, and from Fig \ref{fig:vortex-on-2d-lattice}, we can get the rule to figure out $\mathrm{d} \gamma_{l}$, shown in Fig \ref{fig:rule-of-vortex}.
 \begin{figure}[ht]
     \centering
     \incfig{rule-of-vortex}
     \caption{rule of vortex}
     \label{fig:rule-of-vortex}
 \end{figure}
-The red links in the figure was previously defined as having a large $\mathrm{d} \theta_{l}$, but a new version can be carried out in our present language, that links are colored on which $m_l \neq 0$.
+The red links in the figure was previously defined as having a large $\mathrm{d} \theta_{l} \sim 2\pi $, but a new version can be carried out in our present language, that links are colored on which $m_l \neq 0$.
 
 There still remain two problems:
 \begin{itemize}
@@ -83,11 +83,11 @@ We can solve the two problems together, as the first problem is nonsense in the 
     \label{fig:potential-in-villain-model}
 \end{figure}
 
-This model is not just a re-parameterization of XY model, but a big extension inspired by XY model. We can reintroduce it in the following way: assign each vertex with a $\mathbb{R}$ valued field, break $\mathbb{R}$ into $U(1) \otimes \mathbb{Z}$, sum up all configuration in path integral whose weight consists of interactions between $U(1)$ parts.
+This model is not just a re-parameterization of XY model, but an extension inspired by XY model. We can reintroduce it in the following way: assign each vertex with a $\mathbb{R}$ valued field, break $\mathbb{R}$ into $U(1) \otimes \mathbb{Z}$, sum up all configuration in path integral whose weight only consists of interactions between $U(1)$ parts.
 
 But which model is better? --- Villain model, for Nobel prize \&
 \begin{itemize}
-  \item Ability of defining winding number from $2\pi $ periodicity.
+  \item Ability of defining winding number originated from $2\pi $ periodicity.
   \item Being able to use Gaussian integral.
 \end{itemize}
 
