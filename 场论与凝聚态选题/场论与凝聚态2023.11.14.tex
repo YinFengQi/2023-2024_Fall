@@ -101,8 +101,8 @@ Let's exploit the convenience of Gaussian integral and extra degree of freedom\f
 \begin{equation}
   \mathrm{e}^{-\frac{\gamma_{l}^{2}}{2T}} \sim \int_{-\infty}^{+\infty} \, \mathrm{d}f_l \mathrm{e}^{- \frac{\gamma_{l}^{2}}{2T} - \frac{T}{2} \left( f_l - \mathrm{i} \frac{\gamma_{l}}{T} \right)^{2}} = \int_{-\infty}^{+\infty} \, \mathrm{d}f_l \,\mathrm{e}^{- \frac{T}{2} f_l^{2} + \mathrm{i} f_l \gamma_{l}}
 \end{equation}
-up to a unimportant global coefficient.
-This trick of changing degree of freedom is called \emph{Hubbard-Stratonovich transformation}
+up to a unimportant global coefficient dependent on $T$.
+This trick of changing degree of freedom is called \emph{Hubbard-Stratonovich transformation}.
 
 Performing H-S transformation in partition function, the exponential part on the weight in $\mathcal{Z}$ changes to
 \begin{equation}
@@ -110,11 +110,11 @@ Performing H-S transformation in partition function, the exponential part on the
 \end{equation}
 Note that the term of $\mathrm{e}^{\mathrm{i} f_l 2\pi m_l}$ being path integrated on all $m_l \in \mathbb{Z}$ deduces a constrain of $f_l \in \mathbb{Z}$. Then we mop up the integral \footnote{Here we can treat $\theta$ as if it is $\mathbb{R}$-valued, for the fact that the theory remain the same when $\theta$ is shifted $2\pi $.} on $\theta$,
 \begin{equation}
-  \int \mathrm{d} \theta \, \mathrm{e}^{ \mathrm{i}\sum f_l \mathrm{d} \theta_{l}} = \int \mathrm{d} \theta \, \mathrm{e}^{\mathrm{i} \sum \theta_{l} \mathrm{d} f_l} = \delta\left( \mathrm{d} f_l \right),
+  \int \mathrm{d} \theta \, \mathrm{e}^{ \mathrm{i}\sum f_l \mathrm{d} \theta_{l}} = \int \mathrm{d} \theta \, \mathrm{e}^{\mathrm{i} \sum \theta_{l} \nabla \cdot f} = \delta\left( \operatorname{div} f \right),
 \end{equation}
 Re-write this equation on \emph{dual lattice}, we get a conserved current,
 \begin{equation}
-  \mathrm{d} ^* f_{p*} = \left( \nabla \cdot f \right)_{\text{dual lattice}} = 0.
+  \mathrm{d} ^* f_{p*} = \left( \operatorname{curl} f \right)_{\text{dual lattice}} = 0.
 \end{equation}
 
 Here we put our eye on a more specific case of a topological trivial base manifold to study BKT phase transition, i.e.,
@@ -125,5 +125,5 @@ Substitute into the partition function (the Jacobian is constant), the exponenti
 \begin{equation}
   - \frac{T}{2} \sum_{l*} \left( \mathrm{d} ^{*} h\right)^{2} - 2\pi  \mathrm{i} \sum_{v*} h_{v*} \left( \mathrm{d} m_{v*} \right) - \frac{u}{2T} \sum_{p} \left( \mathrm{d} m \right)_{p}^{2}.
 \end{equation}
-This Lagrangian can be recognized as a Coulomb interacting system, in which $\left( \mathrm{d} ^{*} h \right)^{2}$ is the energy density of electronic field, $h_{v*} \mathrm{d} m_{v*}$ is a Coulomb coupling term, $\left( \mathrm{d} m \right)_{p}^{2}$ is the potential of vortices.
-If we integrate out $\tilde{h}_{v*}$ a Coulomb interaction between vortices will be generated.
+This Lagrangian can be recognized as a Coulomb interacting system, in which $\left( \mathrm{d} ^{*} h \right)^{2}$ is the energy density of electromagnetic field, $h_{v*} \mathrm{d} m_{v*}$ is a Coulomb coupling term, $\left( \mathrm{d} m \right)_{p}^{2}$ is the potential of vortices.
+If we integrate out $\tilde{h}_{v*}$ an explicit Coulomb potential between vortices will be generated.
