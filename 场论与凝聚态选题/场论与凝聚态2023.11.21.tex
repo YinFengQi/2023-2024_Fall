@@ -1,0 +1,40 @@
+% !TeX root = 场论与凝聚态.tex
+
+\section{Phase Transition in Villain Model}
+In order to properly describe vortex, we introduced Villain model which accommodates winding number and the term of vortex energy. Given that a 2d field have a phase transition from long range to quasi-long range and higher dimensional fields from long range to short range, we now turn to investigate physics of Villain model, especially the phase transition in 2d, namely, \emph{BKT transition}.
+
+After integrating out $\tilde{h}$ in \eqref{eq:lagrangian-of-coulomb}, the interaction of vortices would take the form
+\begin{equation}
+  - \frac{1}{2} \sum_{p \, p'} G_{p\, p'} \left( \mathrm{d} m \right)_{p} \left( \mathrm{d} m \right)_{p'},
+\end{equation}
+where $G_{p\, p'}$ comes from the Green's function of $h$, combined together with vortex fugacity.
+\begin{equation}
+  G_{p\, p'} \sim 
+  \begin{cases}
+    - \frac{\pi}{T} \ln r_{p\, p'} , & \left( r_{p\, p'} \gg 1 \right)\\
+    \frac{u}{2T} + \frac{\pi ^{2}}{2T} , & \left( p=p' \right) \\
+  \end{cases}
+\end{equation}
+This form of the interacting term incidentally proves that it is quite natural to bring in the term of $\frac{u}{2T} \left( \mathrm{d} m \right)_{p}^{2}$.
+
+BKT(Berezinskii, Kosterlitz, Thouless) and others performed a coarse-griding renormalization on this effective action, providing the stage for further detailed technical study on this model, which is beyond this lecture, but we shall have a sketchy analyze on it through dome physics picture.
+
+Consider a cluster of vortex-anti-vortex pairs, the characteristic size of each pair is $a$ and the spatial distance of pairs is $R$. The potential energy of this system can be estimated as
+\begin{equation}
+  \frac{\Delta E}{T} \sim \frac{u}{T} + \frac{\pi ^{2}}{T} + \frac{\pi}{T} \ln a,
+\end{equation}
+which can be recognized as fugacity, core energy and Coulomb potential, respectively.
+
+\begin{figure}[ht]
+    \centering
+    \incfig{vortex-anti-vortex-pair}
+    \caption{vortex-anti-vortex pair}
+    \label{fig:vortex-anti-vortex-pair}
+\end{figure}
+
+Entropy of a pair is approximately $S \sim \ln \left( \text{position \#} \right) \sim \ln a^{2}$, and thus increasing a pair in the system comes with additional entropy
+\begin{equation}
+  \Delta S \sim \ln a^{2} + \ln R^{2}.
+\end{equation}
+
+From above we can get the dependence of $\Delta F = \frac{\Delta E }{T} - \Delta S$ on $a$ and $R$, and figure out that when $a \sim \mathcal{O}(1)$ and $R$ is large the system tends to generate more $v=\pm 1$ pairs, resulting an decrease of $R$, and when $R$ is small, reverse applies.
